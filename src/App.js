@@ -8,13 +8,21 @@ import {
 
 } from "react-router-dom";
 import Preview from './Preview';
-
+import Chats from './Chats';
+import ChatView from './ChatView';
 function App() {
   return (
     <div className="App">
   <Router>
     <div className="app_body">
         <Switch>
+
+          <Route className="/chats/view">
+            <ChatView />
+            </Route>
+          <Route path="/chats">
+            <Chats />
+          </Route>
           <Route path="/preview">
             <Preview />
           </Route>
