@@ -8,12 +8,19 @@ import {
 
 } from "react-router-dom";
 import Preview from './Preview';
+import { useSelector,useDispatch } from 'react-redux';
+
 
 function App() {
+  const user = useSelector(useSelector);
+  const dispatch = useDispatch();
   return (
     <div className="App">
   <Router>
-    <div className="app_body">
+    {!user ?(
+      <Login/>
+    ):(
+      <div className="app_body">
         <Switch>
           <Route path="/preview">
             <Preview />
@@ -23,6 +30,8 @@ function App() {
         </Route>
         </Switch>
    </div>
+    )}
+    
     </Router>
     </div>
   );
